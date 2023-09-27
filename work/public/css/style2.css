@@ -1,0 +1,998 @@
+/* iframe用のcss */
+
+@charset "UTF-8";
+
+/* 共通部分 */
+
+.hello-sf-p {
+  text-align: justify;
+  /* background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: luminosity; */
+}
+
+html {
+  font-size: 100%;
+  /* idリンクに移動するときに画面がスクロールする */
+  scroll-behavior: smooth;
+  /* スクロールがheaderと被るのを防ぐ（値はheaderの高さを指定） */
+  scroll-padding-top: 62px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* background: #333; */
+  /* background-color: rgba(107, 142, 123, 0.5); */
+  /* color: #eee; */
+  color: #333;
+  font-family: 'M PLUS 1p', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  /* color: #FFF */
+  color: #333;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  /* vertical-align: top; */
+  vertical-align: middle;
+}
+
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+.page-header {
+  /* headerを上部に固定 */
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  top: 0;
+  /* background-color: rgba(20, 20, 20, .8); */
+  /* background-color: rgba(0, 0, 0, 0.7); */
+}
+
+.page-header-inner {
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  line-height: 55px;
+  padding: 0px 0 50px;
+}
+
+.nav-list,
+.tabs-nav {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  font-size: 1.35rem;
+  align-items: baseline;
+  position: relative;
+  /* -webkit-box-shadow: 1px 0 rgb(255, 255, 255); */
+  /* box-shadow: 1px 0 rgb(255, 255, 255); */
+}
+
+.tabs-nav .nav-item a {
+  display: block;
+  /* padding: 0 1.36em; */
+  position: relative;
+}
+
+.home-logo a:hover,
+.work-section .tabs-nav a:hover,
+.work-section .tabs-nav a.active {
+  /* background-color: rgb(51, 51, 51); */
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  color: rgb(255, 255, 255);
+}
+
+/* .work-section .section-body { */
+  /* height: 450px; */
+  /* position: relative; */
+/* } */
+
+.nav-list a:link {
+  /* color: #FFF; */
+  color: #333;
+}
+
+.nav-list a:visited {
+  /* color: #FFF; */
+  color: #333;
+}
+.home-logo {
+  font-size: 2rem;
+  font-family: 'Darumadrop One', cursive;
+}
+
+.works-category {
+  font-size: 1.5rem;
+  font-family: 'Darumadrop One', cursive;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  /* padding: 5px 0; */
+  transition: .5s;
+  /* color: #FFF; */
+  color: #333;
+}
+
+.nav-link {
+  font-size: 1.5rem;
+  font-family: 'Darumadrop One', cursive;
+}
+
+
+.portfolio-description {
+  display: none;
+}
+
+.portfolio-description-sf {
+  margin: 100px auto 0;
+  padding: 10px;
+  width: 350px;
+  height: 250px;
+  background-color: rgb(214, 228, 221);
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background-image: url(../images/mybird3.png);
+  background-size: 100px;
+  background-position: right 0% bottom 0%;
+}
+
+.underspace {
+    margin-bottom: 20px;
+  }
+
+.tabs-panel {
+  margin-top: 5%;  
+
+}
+
+footer {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  bottom: 0;
+  margin: 0 auto;
+}
+
+/* ナビゲーションの下に線を出す */
+
+.home-logo:hover,
+.nav-link:hover {
+  opacity: 1;
+}
+
+.home-logo:after,
+.nav-link:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  content: "";
+  transition: .3s;
+  transform: translateX(-50%);
+  background-color: #fff;
+
+}
+
+
+.nav-link:hover:after {
+  width: 100%;
+}
+
+/*スクロールダウン全体の場所*/
+.scrolldown {
+  /*描画位置※位置は適宜調整してください*/
+  position: absolute;
+  bottom: 1%;
+  right: 50%;
+  /*矢印の動き1秒かけて永遠にループ*/
+  animation: arrowmove 1s ease-in-out infinite;
+  z-index: 999;
+}
+
+/*下からの距離が変化して全体が下→上→下に動く*/
+@keyframes arrowmove {
+  0% {
+    bottom: 1%;
+  }
+
+  50% {
+    bottom: 3%;
+  }
+
+  100% {
+    bottom: 1%;
+  }
+}
+
+/*Scrollテキストの描写*/
+.scrolldown span {
+  /*描画位置*/
+  position: absolute;
+  left: -20px;
+  bottom: 10px;
+  /*テキストの形状*/
+  color: #eee;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  /*縦書き設定*/
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+}
+
+/* 矢印の描写 */
+.scrolldown:before {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 0;
+  right: -6px;
+  /*矢印の形状*/
+  width: 1px;
+  height: 20px;
+  background: #eee;
+  transform: skewX(-31deg);
+}
+
+.scrolldown:after {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  /*矢印の形状*/
+  width: 1px;
+  height: 50px;
+  background: #eee;
+}
+
+/*--------------------------------
+ 文字
+---------------------------------*/
+/* .heading-title {
+  font-family: "Open sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+  line-height: 1;
+  margin-bottom: 15px;
+  letter-spacing: .05em; */
+  /*字送り */
+/* } */
+
+/* .section-heading {
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+
+.section-text {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.text-bold {
+  font-weight: bold;
+} */
+
+/*--------------------------------
+   レイアウト
+  ---------------------------------*/
+/* 
+.section {
+  padding: 10px 0;
+} */
+
+/* 奇数だけ色を変えている */
+/* .section:nth-of-type(odd) {
+  background-color: #1B1B1B;
+} */
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/*--------------------------------
+  Works
+---------------------------------*/
+
+.heading {
+  font-family: 'Darumadrop One', cursive;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  margin: 5px 0 15px;
+}
+
+.works-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 50px;
+}
+
+/* .works-item { */
+/* background: #eee; */
+/* margin: 80px auto 80px; */
+/* } */
+
+.works-body {
+  text-align: right;
+}
+
+.works-title {
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.works-text {
+  font-size: 0.625rem;
+  color: #333;
+}
+
+.works-url {
+  font-size: 0.625rem;
+}
+
+/*--------------------------------
+About
+---------------------------------*/
+.about-section .inner {
+  max-width: 1000px;
+}
+
+.about-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-image-wrapper {
+  flex: 0 0 220px;
+  /*about-item-wrapperは220pxでサイズ固定*/
+  margin-right: 40px;
+}
+
+.about-image {
+  border-radius: 50%;
+  box-shadow: 0 0 25px 0 #d9d9d9;
+}
+
+.about-text {
+  flex: 1;
+  /*about-textはサイズ可変*/
+}
+
+/*--------------------------------
+Contact ※後で消す
+---------------------------------*/
+.contact-list {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-item {
+  width: 50px;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.contact-text {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/*--------------------------------
+   フッター
+  ---------------------------------*/
+.copyright {
+  font-size: 0.625rem;
+  text-align: center;
+  color: #8c8c8c;
+}
+
+.page-top {
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: block;
+  padding: 50px;
+  cursor: pointer;
+  text-align: center;
+  /* background-color: #ccc; */
+}
+
+/* -------- */
+/* slick */
+.slider {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slick-slide {
+  margin: 0 auto;
+  padding: 0;
+  height: 280px;
+}
+
+.slick-slide img {
+  width: 100%;
+  height: 280px;
+}
+
+.slick-list {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0;
+}
+
+.slick-list.draggable {
+  margin: 0 auto;
+  padding: 0;
+  height: 280px;
+}
+
+.mypattern {
+  width: 100%;
+  height: 280px;
+}
+
+.mypattern .slick-slide {
+  margin: 0 10px;
+  height: 280px;
+}
+
+.mypattern .slick-slide:not(.slick-center) {
+  -webkit-filter: opacity(70%);
+  -moz-filter: opacity(70%);
+  -o-filter: opacity(70%);
+  -ms-filter: opacity(70%);
+  filter: opacity(70%);
+  transition: 1s linear;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #000;
+  opacity: 0.3;
+  font-size: 40px;
+}
+
+.slick-arrow {
+  z-index: 2 !important;
+  width: 90px !important;
+  height: 90px !important;
+}
+
+.slick-next {
+  right: -80px !important;
+
+}
+
+.slick-prev {
+  left: -80px !important;
+}
+
+
+
+
+/* -------------------------------------------------- */
+/* works.html */
+
+/* main-container */
+.grid {
+  width: 1000px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-bottom: 20px;
+}
+
+.item img {
+  opacity: 0.7;
+}
+.item img:hover {
+  opacity: 1;
+}
+/* .map-container {
+  margin: 20px 0 100px;
+  padding: 0 0 60px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  border-bottom: 4px dashed rgba(255, 160, 35, 0.5);
+}
+.door {
+  background: rgba(255, 160, 35, 0.5);
+  width: 30%;
+  height: 200px;
+  border-radius: 30px;
+  position: relative;
+  text-align: center;
+}
+.door img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+} */
+.item {
+  position: relative;
+}
+.item-name {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space:nowrap;
+  font-size: 1.75rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, .5);
+  font-family: 'Darumadrop One', cursive;
+  letter-spacing: 0.5rem;
+}
+.community {
+  width: 315px;
+}
+.community img {
+  width: 315px;
+}
+
+/* -------------------------------------------------- */
+/* me.html */
+
+/*original========================================*/
+.history-list tr,
+.history-list td {
+  padding: 5px;
+}
+
+.history-list td {
+  padding-right: 30px;
+}
+
+.history-list {
+  border-collapse:collapse;
+}
+
+.fa {
+  margin: 0 10px;
+}
+
+
+.skills-container-title {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-left: 1px solid rgba(0, 60, 0, 0.1);
+  border-right: 1px solid rgba(0, 60, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 60, 0, 0.1);
+}
+
+.skills-container table {
+  margin: 0px auto;
+  width: 95%;
+  text-align: center;
+  border-collapse:collapse;
+}
+
+.skills-container table tr,
+.skills-container table td,
+.skills-container table th {
+  border-left: 1px solid rgba(0, 60, 0, 0.3);
+  border-right: 1px solid rgba(0, 60, 0, 0.3);
+  vertical-align: top;
+}
+
+.skills-container table td,
+.skills-container table th {
+  border-collapse:collapse;
+  padding: 5px;
+}
+
+
+
+/*
+.s_04 .accordion_one
+====================================================================*/
+.s_04 .accordion_one {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.s_04 .accordion_one .accordion_header {
+  font-weight: bold;
+  padding: 5px 2%;
+  position: relative;
+  z-index: +1;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 1.75rem;
+  /* font-size: 2rem; */
+  font-family: 'Darumadrop One', cursive;
+}
+.s_04 .accordion_one .accordion_header:hover {
+  opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+/* -------------xボタン------------- */
+.s_04 .accordion_one .accordion_header .i_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 64%;
+  right: 5%;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #fff;
+  margin-top: -20px;
+  box-sizing: border-box;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  transform-origin: center center;
+  transition-duration: 0.5s;
+}
+.s_04 .accordion_one .accordion_header.stay .i_box {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.s_04 .accordion_one .accordion_header .i_box .one_i {
+  display: block;
+  width: 18px;
+  height: 18px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  transform-origin: center center;
+  transition-duration: 0.2s;
+  position: relative;
+}
+.s_04 .accordion_one .accordion_header.stay .i_box .one_i {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.s_04 .accordion_one .accordion_header.stay.open .i_box .one_i {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.s_04 .accordion_one .accordion_header.open .i_box {
+  -webkit-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+}
+.s_04 .accordion_one .accordion_header.stay.open .i_box {
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+.s_04 .accordion_one .accordion_header .i_box .one_i:before, .s_04 .accordion_one .accordion_header .i_box .one_i:after {
+  display: flex;
+  content: '';
+  background-color: #fff;
+  border-radius: 10px;
+  width: 18px;
+  height: 4px;
+  position: absolute;
+  top: 7px;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transform-origin: center center;
+}
+.s_04 .accordion_one .accordion_header .i_box .one_i:before {
+  width: 4px;
+  height: 18px;
+  top: 0;
+  left: 7px;
+}
+.s_04 .accordion_one .accordion_header.stay .i_box .one_i:before {
+  content: none;
+}
+.s_04 .accordion_one .accordion_header.open .i_box .one_i:before {
+  content: none;
+}
+.s_04 .accordion_one .accordion_header.stay.open .i_box .one_i:before {
+  content: "";
+}
+.s_04 .accordion_one .accordion_header.open .i_box .one_i:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.s_04 .accordion_one .accordion_header.stay.open .i_box .one_i:after {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+/* -------------xボタン------------- */
+
+
+.s_04 .accordion_one .accordion_inner {
+  display: none;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.3);
+}
+.s_04 .accordion_one .accordion_inner.stay {
+  display: block;
+}
+.s_04 .accordion_one .accordion_inner .box_one {
+  height: 310px;
+}
+.s_04 .accordion_one .accordion_inner .box_one_contact {
+  height: 500px;
+}
+.s_04 .accordion_one .accordion_inner .txt_a_ac {
+  margin:15px 40px;
+  line-height: 1rem;
+}
+
+/*--------contact------- */
+
+#container{
+	width:500px;
+	margin:0 auto;
+	padding:20px;
+}
+
+label {
+  font-size: 1.125rem;
+  margin-bottom: 10px;
+  display: block;
+}
+label span{
+	color:red;
+	font-weight:bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  background: rgba(255, 255, 255, .5);
+  border: 1px #fff solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: 100%;
+  max-width: 480px;
+  height: 10rem;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 10px;
+  background: rgba(46, 133, 107, 0.3);
+  font-size: 1rem;
+}
+/*
+dl dd{
+	font-size:small;
+	margin:0;
+	padding:10px;
+}
+dl dd input{
+	position:relative;
+	z-index:2;
+}
+} */
+
+input[type="text"].error input,
+input[type="email"].error input,
+textarea.error textarea {
+  background:#FFCCCC;
+}
+
+
+/* dl dd.error input , 
+dl dd.error textarea {
+	background:#FFCCCC;
+} */
+
+input[type="text"] p.error,
+input[type="email"] p.error,
+textarea p.error {
+  margin:0;
+	color:red;
+	font-weight:bold;
+	margin-bottom:1em;
+}
+
+/* dl dd p.error{
+	margin:0;
+	color:red;
+	font-weight:bold;
+	margin-bottom:1em;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.portfolio-description iframe {
+  background-color: rgba(255, 255, 255, 0)
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------------------------------ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+  .s_04 .accordion_one .accordion_header {
+    font-size: 18px;
+  }
+  .s_04 .accordion_one .accordion_header .i_box {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .s_04 .accordion_one .accordion_header {
+    font-size: 16px;
+    text-align: left;
+    padding: 15px 60px 15px 15px;
+  }
+}
+
+/* -------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+/* 後で調整------------------------------------------------------------------------ */
+
+body {
+  font-family: YuGothic, "游ゴシック体", "Yu Gothic", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: .025em;
+  margin: 0;
+}
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 14px;
+  }
+}
+.section {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 20px 20px 0;
+}
+.section p._a {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 30px 0 0;
+}
+.section p._a .link {
+  display: inline-block;
+  color: #607D8B;
+  padding-left: 1.3em;
+  text-indent: -1.3em;
+}
+.section p._a .link:before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-top: 2px solid #607D8B;
+  border-right: 2px solid #607D8B;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin-right: 10px;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+
+
+
+@media (max-width: 767px) {}

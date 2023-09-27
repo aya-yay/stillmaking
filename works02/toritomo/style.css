@@ -1,0 +1,394 @@
+/* スマホアプリ */
+
+@charset "utf-8";
+
+/* common */
+body {
+  margin: 0;
+}
+
+img {
+  vertical-align: bottom;
+  width: 100%;
+}
+
+.btn-dl {
+  background: rgb(250, 255, 204);
+  color: #111;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: block;
+  box-shadow: 5px 3px rgb(101, 83, 74);
+}
+
+.btn-web {
+  background: rgb(228, 255, 232);
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: block;
+  box-shadow: 5px 3px rgb(101, 83, 74);
+}
+
+.btn:active {
+  box-shadow: none;
+  position: relative;
+  top: 3px;
+  left: 3px;
+}
+
+h2 {
+  margin: 0;
+  text-align: center;
+  margin-top: 32px;
+}
+
+h3 {
+  margin: 0;
+  text-align: center;
+  display: inline-block;
+  border-bottom: 2px solid rgba(213, 163, 255, 0.5);
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 4%;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+section {
+  padding: 0 4%;
+}
+
+/* header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #555;
+
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+  width: 100%;
+  padding: 16px 4% 0;
+}
+
+
+header .btns {
+  display: block;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+header .btn {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 0;
+}
+
+
+.logo-pc {
+  display: none;
+}
+
+.logo-sp {
+  width: 120px;
+}
+
+/* hero */
+
+.hero {
+  background: url(images/toritomo-bg06.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 64px 0 32px;
+  margin-top: 64px;
+}
+
+.hero img {
+  margin-top: 64px;
+}
+
+.hero .btn {
+  margin-top: 64px;
+}
+
+.app-name {
+  font-weight: bold;
+  font-size: 3rem;
+  color: rgb(155, 182, 234);
+  text-shadow: 5px 0 black;
+  text-shadow: 4px 0px black;
+  letter-spacing: 3px;
+  margin-top: 16px;
+}
+
+.app-name-right {
+  margin-left: 8px;
+  font-size: 1.35rem;
+}
+
+.protect {
+  color: rgb(207, 76, 0);
+  font-size: 1.1rem;
+}
+
+.toritomo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  /* color: rgb(155, 182, 234); */
+  text-shadow: 2px 2px rgb(155, 182, 234);
+}
+
+/* about */
+.about {
+  text-align: center;
+}
+
+.about h2 {
+  margin-bottom: 32px;
+}
+
+.about p {
+  text-align: justify;
+  margin-top: 16px;
+}
+
+span.app-name {
+  font-size: 1.75rem;
+}
+
+/* features */
+.features {
+  padding: 0;
+  background: #fff;
+}
+
+.feature {
+  margin-top: 32px;
+}
+
+.feature .pic {
+  text-align: center;
+}
+
+.feature .desc {
+  text-align: center;
+}
+
+.feature .desc p {
+  text-align: left;
+}
+
+.feature h3 {
+  margin-top: 16px;
+}
+
+.feature p {
+  margin-top: 16px;
+}
+
+/* download */
+.download {
+  height: 250px;
+  text-align: center;
+
+  background-image: url(./images/footprint02.png);
+  background-repeat: repeat-x;
+  background-position:150px 150px;
+  background-size: 100px;
+}
+
+.download h2 {
+  margin-top: 64px;
+}
+
+.download .btn {
+  margin-top: 32px;
+}
+
+.join {
+  color: rgb(207, 76, 0);
+}
+
+/* footer */
+footer {
+  background: rgb(221, 244, 255);
+  color: 555;
+  padding: 64px 0;
+  text-align: center;
+}
+
+small {
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* large screen */
+
+@media (min-width: 600px) {
+
+  /* common */
+  h3 {
+    margin: 0;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 1100px;
+  }
+
+  /* header */
+
+  header {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  header.container .btns {
+    display: block;
+    display: flex;
+  }
+
+  .logo-sp {
+    display: none;
+  }
+
+  .logo-pc {
+    display: inline;
+    width: 284px;
+  }
+
+  .hero .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .hero .container div {
+    flex: 1;
+  }
+
+  .hero img {
+    margin-top: 0;
+  }
+
+  /* about */
+
+  .about {
+    padding: 64px 100px;
+  }
+
+  .about p {
+    text-align: center;
+  }
+
+  span.app-name {
+    font-size: 2rem;
+  }
+
+  /* features */
+  .feature {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .reversed {
+    flex-direction: row-reverse;
+  }
+
+  .feature .desc {
+    text-align: justify;
+    width: 50%;
+  }
+
+  .feature .pic {
+    width: 50%;
+  }
+
+  .download {
+    padding-top: 100px;
+    background-image: url(./images/footprint04.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: center
+  }
+
+  h2.join {
+    margin-top: 0;
+  }
+
+
+}

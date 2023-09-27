@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.jsとMongoDBを使ったTodoアプリ</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <section class="tabs-panel" id="request">
+        <div class="content">
+            <div class="inner">
+                <div class="wrapper">
+                    <div class="main-container">
+                        <!-- スマホでは非表示↓ -->
+                        <div class="request">
+                            <h3>訪問者の皆さまへ<i class="fa fa-solid fa-feather"></i></h3>
+                            <p>ここでは、Ayano's portfoliosをより良くしていくためのご意見箱を設置しています。</p>
+                            <p>「もっとこうだったらいいのにな～」というご意見があれば、</p>
+                            <p> ご遠慮なく以下リストに追加してくださいませ！</p>
+                            <!-- <p style="color: red;">※現在、準備中</p> -->
+                        </div>
+                        <!-- スマホでは非表示↑ -->
+                        <!-- PCでは非表示↓ -->
+                        <div class="request-sf">
+                            <h3>訪問者の皆さまへ<i class="fa fa-solid fa-feather"></i></h3>
+                            <p>ここでは、Ayano's portfoliosをより良くしていくためのご意見箱を設置しています。
+                                「もっとこうだったらいいのにな～」というご意見があれば、
+                                ご遠慮なく以下リストに追加してくださいませ！</p>
+                            <span style="color: red;">※現在、準備中</span>
+                        </div>
+                        <!-- PCでは非表示↑ -->
+
+                        <form class="task-form">
+                            <h4>あったらいいなリスト</h4>
+                            <div class="form-control">
+                                <input type="text" name="name" class="task-input" placeholder="ここにタスクを入力" />
+                                <button type="submit" class="btn submit-btn">Add</button>
+                            </div>
+                            <div class="form-alert">
+                                <!-- script.jsから出力 -->
+                            </div>
+                        </form>
+
+                        <section class="tasks-container">
+                            <div class="tasks">
+                                <!-- script.jsから出力 -->
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
