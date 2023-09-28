@@ -34,12 +34,8 @@ class Todo
           $this->delete();
           break;
         case 'purge':
-          // $this->purge();
+          $this->purge();
           break;
-        // case 'contact':
-          // $this->purge();
-          // echo 'トークンクラスとは関係ないよ';
-          // break;
         default:
           return;
       }

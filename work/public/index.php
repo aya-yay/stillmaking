@@ -111,6 +111,7 @@ function h($str)
 $pageFlag = 0;
 $errors = validation($_POST);
 
+
 if (!empty($_POST['btn_confirm']) && empty($errors)) {
     $pageFlag = 1;
 }
@@ -810,8 +811,8 @@ if (!empty($_POST['btn_submit'])) {
                                                                 お問い合わせ
                                                                 <?php echo h($_POST['message']); ?>
                                                                 <br>
-                                                                <input type="submit" name="back" value="戻る">
-                                                                <input type="submit"  name="btn_submit" value="送信する">
+                                                                <input type="submit" name="back" value="戻る" class="btn_submit">
+                                                                <input type="submit"  name="btn_submit" value="送信する" class="btn_submit">
                                                                 <input type="hidden" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
                                                                 <input type="hidden" name="email" value="<?php echo h($_POST['email']); ?>">
                                                                 <input type="hidden" name="message" value="<?php echo h($_POST['message']); ?>">
@@ -824,7 +825,7 @@ if (!empty($_POST['btn_submit'])) {
                                                     <?php if ($_POST['csrf'] === $_SESSION['csrfToken']): ?>
                                                             送信が完了しました
                                                             <?php unset($_SESSION['csrfToken']); ?>
-                                                            <a href="#">Homeに戻る</a>
+                                                            <!-- <a href="#">Homeに戻る</a> -->
                                                     <?php endif; ?>
                                             <?php endif; ?>
 
@@ -867,7 +868,7 @@ if (!empty($_POST['btn_submit'])) {
                                                     } ?></textarea>
                                                     <br>
                                                     <br>
-                                                    <input type="submit"  name="btn_confirm" value="確認する">
+                                                    <input type="submit"  name="btn_confirm" value="確認する" class="btn_submit">
                                                     <input type="hidden" name="csrf" value="<?php echo $token; ?>">
                                                     </form>
                                             <?php endif; ?>

@@ -353,4 +353,45 @@ purge.addEventListener('click', () => {
 
 //-------------------------------------------
 
+document.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const target=e.target;
+  const url=target.action??"";
+  const method="post";
+  const body=new FormData(target);
+  const txt=await fetch(url,{method,body}).then(res=>res.text());
+  console.log(txt);
+});
 
+
+
+
+//============================
+// const fetchForm = document.querySelector('.contact-form');
+// const submit_btn = document.querySelector('.btn_submit');
+
+// const postFetch = () => {
+//     e.preventDefault();
+//     let formData = new FormData(e.target);
+//     let url_search_params = new URLSearchParams(formData);
+//     for (let value of formData.entries()) {
+//         console.log(value);
+//     }
+
+//     fetch('input.php/#contact', {
+//         method: 'POST',
+//         body: url_search_params,
+//     }).then((response) => {
+//         if(!response.ok) {
+//             console.log('error!');
+//         } 
+//         console.log('ok!');
+//         return response.json();
+//     }).then((data)  => {
+//         console.log(data);
+//     }).catch((error) => {
+//         console.log(error);
+//     });
+// };
+
+// submit_btn.addEventListener('click', postFetch, false);
